@@ -37,13 +37,15 @@ const Index = () => {
       <div className="relative">
         <section className="container mx-auto px-4 pt-8 pb-4">
           <Card className="overflow-hidden border-primary/20 glow-box animate-fade-in">
-            <div className="relative h-64 md:h-80 lg:h-96">
+            <div className="relative h-64 md:h-80 lg:h-[500px]">
               <img 
                 src="https://cdn.poehali.dev/files/4c68eda5-49f0-4d74-9e5f-24a4f15b3859.jpg" 
                 alt="PozLite Studio Banner"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
+                style={{ imageRendering: 'crisp-edges' }}
+                loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             </div>
           </Card>
         </section>
