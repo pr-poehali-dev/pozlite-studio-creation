@@ -77,16 +77,28 @@ const Index = () => {
         </section>
 
         <header className="container mx-auto px-4 py-12 text-center">
-          <div className="animate-fade-in">
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-4 glow-text tracking-tight">
-              PozLite Studio
-            </h1>
-            <div className="h-1 w-48 mx-auto bg-gradient-to-r from-primary via-secondary to-accent rounded-full animate-shimmer" 
-                 style={{ backgroundSize: '200% 100%' }} />
-            <p className="text-xl md:text-2xl text-muted-foreground mt-8 max-w-2xl mx-auto font-light">
-              Создаём будущее цифровых продуктов
-            </p>
+          <div className="relative animate-fade-in inline-block">
+            <div className="absolute -top-8 -left-8 text-5xl animate-float opacity-80">🌸</div>
+            <div className="absolute -top-6 -right-10 text-6xl animate-float opacity-70" style={{ animationDelay: '0.3s' }}>🌸</div>
+            <div className="absolute -bottom-4 -left-12 text-4xl animate-float opacity-60" style={{ animationDelay: '0.6s' }}>🌸</div>
+            <div className="absolute -bottom-6 -right-8 text-5xl animate-float opacity-75" style={{ animationDelay: '0.9s' }}>🌸</div>
+            <div className="absolute top-1/4 -left-16 text-3xl animate-float opacity-50" style={{ animationDelay: '1.2s' }}>🌸</div>
+            <div className="absolute top-1/3 -right-14 text-4xl animate-float opacity-65" style={{ animationDelay: '1.5s' }}>🌸</div>
+            
+            <div className="relative p-1 rounded-3xl bg-gradient-to-r from-purple-400 via-rose-400 to-pink-400 glow-box">
+              <div className="bg-background/95 backdrop-blur-sm rounded-2xl px-12 py-8">
+                <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-4 glow-text tracking-tight">
+                  PozLite Studio
+                </h1>
+                <div className="h-1 w-48 mx-auto bg-gradient-to-r from-primary via-secondary to-accent rounded-full animate-shimmer" 
+                     style={{ backgroundSize: '200% 100%' }} />
+              </div>
+            </div>
           </div>
+          
+          <p className="text-xl md:text-2xl text-muted-foreground mt-12 max-w-2xl mx-auto font-light animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Создаём будущее цифровых продуктов
+          </p>
 
           <div className="mt-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <Card className="overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 border-primary/30 glow-box">
