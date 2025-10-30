@@ -6,14 +6,6 @@ import Icon from "@/components/ui/icon";
 const Index = () => {
   const downloads = [
     {
-      title: "Premium Pack v2.0",
-      description: "Полный набор инструментов для разработки",
-      size: "245 MB",
-      downloads: "12.5K",
-      category: "Сборка",
-      icon: "Package"
-    },
-    {
       title: "Design Suite Pro",
       description: "Профессиональные инструменты дизайна",
       size: "189 MB",
