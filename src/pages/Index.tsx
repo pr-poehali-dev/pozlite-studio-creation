@@ -36,18 +36,31 @@ const Index = () => {
       
       <div className="relative">
         <section className="container mx-auto px-4 pt-8 pb-4">
-          <Card className="overflow-hidden border-primary/20 glow-box animate-fade-in">
-            <div className="relative h-64 md:h-80 lg:h-[500px]">
-              <img 
-                src="https://cdn.poehali.dev/files/4c68eda5-49f0-4d74-9e5f-24a4f15b3859.jpg" 
-                alt="PozLite Studio Banner"
-                className="w-full h-full object-cover object-center"
-                style={{ imageRendering: 'crisp-edges' }}
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="relative animate-fade-in">
+            <div className="absolute top-4 left-4 text-6xl animate-float opacity-70">🌸</div>
+            <div className="absolute top-8 right-8 text-5xl animate-float opacity-60" style={{ animationDelay: '0.5s' }}>🌸</div>
+            <div className="absolute bottom-12 left-12 text-4xl animate-float opacity-50" style={{ animationDelay: '1s' }}>🌸</div>
+            <div className="absolute bottom-8 right-6 text-5xl animate-float opacity-65" style={{ animationDelay: '1.5s' }}>🌸</div>
+            <div className="absolute top-1/3 left-6 text-3xl animate-float opacity-40" style={{ animationDelay: '2s' }}>🌸</div>
+            <div className="absolute top-2/3 right-12 text-4xl animate-float opacity-55" style={{ animationDelay: '2.5s' }}>🌸</div>
+            
+            <div className="relative p-1 rounded-2xl bg-gradient-to-r from-purple-400 via-rose-400 to-pink-400 glow-box">
+              <div className="bg-background rounded-xl p-1">
+                <Card className="overflow-hidden border-0 rounded-xl">
+                  <div className="relative h-64 md:h-80 lg:h-[500px]">
+                    <img 
+                      src="https://cdn.poehali.dev/files/4c68eda5-49f0-4d74-9e5f-24a4f15b3859.jpg" 
+                      alt="PozLite Studio Banner"
+                      className="w-full h-full object-cover object-center rounded-xl"
+                      style={{ imageRendering: 'crisp-edges' }}
+                      loading="eager"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent rounded-xl" />
+                  </div>
+                </Card>
+              </div>
             </div>
-          </Card>
+          </div>
           
           <div className="text-center mt-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <a 
