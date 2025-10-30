@@ -35,6 +35,19 @@ const Index = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
       
       <div className="relative">
+        <section className="container mx-auto px-4 pt-8 pb-4">
+          <Card className="overflow-hidden border-primary/20 glow-box animate-fade-in">
+            <div className="relative h-64 md:h-80 lg:h-96">
+              <img 
+                src="https://cdn.poehali.dev/files/4c68eda5-49f0-4d74-9e5f-24a4f15b3859.jpg" 
+                alt="PozLite Studio Banner"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+            </div>
+          </Card>
+        </section>
+
         <header className="container mx-auto px-4 py-12 text-center">
           <div className="animate-fade-in">
             <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-4 glow-text tracking-tight">
