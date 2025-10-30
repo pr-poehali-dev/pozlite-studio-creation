@@ -46,6 +46,35 @@ const Index = () => {
               Создаём будущее цифровых продуктов
             </p>
           </div>
+
+          <div className="mt-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <Card className="overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 border-primary/30 glow-box">
+              <div className="relative h-80 md:h-96 flex items-center justify-center p-8">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 animate-shimmer" style={{ backgroundSize: '200% 100%' }} />
+                <div className="relative z-10 text-center space-y-6">
+                  <Badge className="bg-primary/80 text-primary-foreground text-sm px-4 py-2 animate-float">
+                    🚀 Новинка
+                  </Badge>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold glow-text">
+                    Скоро большое обновление!
+                  </h2>
+                  <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Следите за анонсами в нашем блоге
+                  </p>
+                  <div className="flex flex-wrap gap-4 justify-center mt-8">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 glow-box">
+                      <Icon name="Bell" size={20} className="mr-2" />
+                      Подписаться на новости
+                    </Button>
+                    <Button size="lg" variant="outline" className="gradient-border">
+                      <Icon name="Info" size={20} className="mr-2" />
+                      Узнать больше
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </header>
 
         <section className="container mx-auto px-4 py-16">
