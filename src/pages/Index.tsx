@@ -78,19 +78,23 @@ const Index = () => {
 
         <header className="container mx-auto px-4 py-12 text-center">
           <div className="relative animate-fade-in inline-block">
-            <div className="absolute -top-8 -left-8 text-5xl animate-float opacity-80">🌸</div>
-            <div className="absolute -top-6 -right-10 text-6xl animate-float opacity-70" style={{ animationDelay: '0.3s' }}>🌸</div>
-            <div className="absolute -bottom-4 -left-12 text-4xl animate-float opacity-60" style={{ animationDelay: '0.6s' }}>🌸</div>
-            <div className="absolute -bottom-6 -right-8 text-5xl animate-float opacity-75" style={{ animationDelay: '0.9s' }}>🌸</div>
-            <div className="absolute top-1/4 -left-16 text-3xl animate-float opacity-50" style={{ animationDelay: '1.2s' }}>🌸</div>
-            <div className="absolute top-1/3 -right-14 text-4xl animate-float opacity-65" style={{ animationDelay: '1.5s' }}>🌸</div>
+            <div className="absolute -top-12 -left-8 text-6xl animate-float opacity-80">🌸</div>
+            <div className="absolute -top-8 -right-12 text-7xl animate-float opacity-70" style={{ animationDelay: '0.3s' }}>🌸</div>
+            <div className="absolute -bottom-8 -left-16 text-5xl animate-float opacity-60" style={{ animationDelay: '0.6s' }}>🌸</div>
+            <div className="absolute -bottom-10 -right-10 text-6xl animate-float opacity-75" style={{ animationDelay: '0.9s' }}>🌸</div>
+            <div className="absolute top-1/4 -left-20 text-4xl animate-float opacity-50" style={{ animationDelay: '1.2s' }}>🌸</div>
+            <div className="absolute top-1/3 -right-18 text-5xl animate-float opacity-65" style={{ animationDelay: '1.5s' }}>🌸</div>
+            <div className="absolute top-10 -left-24 text-3xl animate-float opacity-45" style={{ animationDelay: '1.8s' }}>🌸</div>
+            <div className="absolute top-16 -right-20 text-4xl animate-float opacity-55" style={{ animationDelay: '2.1s' }}>🌸</div>
+            <div className="absolute bottom-12 -left-10 text-5xl animate-float opacity-70" style={{ animationDelay: '2.4s' }}>🌸</div>
+            <div className="absolute bottom-16 -right-16 text-4xl animate-float opacity-60" style={{ animationDelay: '2.7s' }}>🌸</div>
             
-            <div className="relative p-1 rounded-3xl bg-gradient-to-r from-purple-400 via-rose-400 to-pink-400 glow-box">
+            <div className="relative p-2 rounded-3xl bg-gradient-to-r from-purple-400 via-rose-400 to-pink-400 glow-box shadow-2xl shadow-purple-500/50">
               <div className="bg-background/95 backdrop-blur-sm rounded-2xl px-12 py-8">
                 <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-4 glow-text tracking-tight">
                   PozLite Studio
                 </h1>
-                <div className="h-1 w-48 mx-auto bg-gradient-to-r from-primary via-secondary to-accent rounded-full animate-shimmer" 
+                <div className="h-1.5 w-48 mx-auto bg-gradient-to-r from-primary via-secondary to-accent rounded-full animate-shimmer" 
                      style={{ backgroundSize: '200% 100%' }} />
               </div>
             </div>
