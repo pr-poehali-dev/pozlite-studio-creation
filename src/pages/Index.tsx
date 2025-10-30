@@ -4,24 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
-  const downloads = [
-    {
-      title: "Design Suite Pro",
-      description: "Профессиональные инструменты дизайна",
-      size: "189 MB",
-      downloads: "8.2K",
-      category: "Приложение",
-      icon: "Palette"
-    },
-    {
-      title: "Code Editor Plus",
-      description: "Мощный редактор с AI помощником",
-      size: "156 MB",
-      downloads: "15.8K",
-      category: "Приложение",
-      icon: "Code2"
-    }
-  ];
+  const downloads: any[] = [];
 
   const blogPosts = [
     {
