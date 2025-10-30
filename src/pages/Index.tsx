@@ -48,6 +48,19 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
             </div>
           </Card>
+          
+          <div className="text-center mt-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <a 
+              href="https://www.youtube.com/@Pozetiv_lite" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-lg text-muted-foreground hover:text-primary transition-colors group"
+            >
+              <Icon name="Youtube" size={28} className="text-accent group-hover:animate-glow-pulse" />
+              <span className="font-medium">YouTube: @Pozetiv_lite</span>
+              <Icon name="ExternalLink" size={18} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </div>
         </section>
 
         <header className="container mx-auto px-4 py-12 text-center">
