@@ -87,8 +87,12 @@ const Index = () => {
             >
               🌸
               {hoveredSakura === 0 && (
-                <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
-                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-48 h-48 animate-fade-in pointer-events-none">
+                  <img 
+                    src="https://media.tenor.com/lPRVFMSMTGkAAAAi/fox-fox-girl.gif" 
+                    alt="Cute anime girl"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               )}
             </div>
@@ -100,8 +104,12 @@ const Index = () => {
             >
               🌸
               {hoveredSakura === 1 && (
-                <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
-                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-48 h-48 animate-fade-in pointer-events-none">
+                  <img 
+                    src="https://media.tenor.com/lPRVFMSMTGkAAAAi/fox-fox-girl.gif" 
+                    alt="Cute anime girl"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               )}
             </div>
@@ -113,8 +121,12 @@ const Index = () => {
             >
               🌸
               {hoveredSakura === 2 && (
-                <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
-                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-48 h-48 animate-fade-in pointer-events-none">
+                  <img 
+                    src="https://media.tenor.com/lPRVFMSMTGkAAAAi/fox-fox-girl.gif" 
+                    alt="Cute anime girl"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               )}
             </div>
@@ -126,8 +138,12 @@ const Index = () => {
             >
               🌸
               {hoveredSakura === 3 && (
-                <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
-                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-48 h-48 animate-fade-in pointer-events-none">
+                  <img 
+                    src="https://media.tenor.com/lPRVFMSMTGkAAAAi/fox-fox-girl.gif" 
+                    alt="Cute anime girl"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               )}
             </div>
