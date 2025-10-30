@@ -2,9 +2,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
   const downloads: any[] = [];
+  const [hoveredSakura, setHoveredSakura] = useState<number | null>(null);
 
   const blogPosts = [
     {
@@ -78,10 +80,57 @@ const Index = () => {
 
         <header className="container mx-auto px-4 py-12 text-center">
           <div className="relative animate-fade-in inline-block">
-            <div className="absolute -top-12 -left-8 text-6xl animate-float opacity-80">🌸</div>
-            <div className="absolute -top-8 -right-12 text-7xl animate-float opacity-70" style={{ animationDelay: '0.3s' }}>🌸</div>
-            <div className="absolute -bottom-8 -left-16 text-5xl animate-float opacity-60" style={{ animationDelay: '0.6s' }}>🌸</div>
-            <div className="absolute -bottom-10 -right-10 text-6xl animate-float opacity-75" style={{ animationDelay: '0.9s' }}>🌸</div>
+            <div 
+              className="absolute -top-12 -left-8 text-6xl animate-float opacity-80 cursor-pointer transition-transform hover:scale-125 z-50" 
+              onMouseEnter={() => setHoveredSakura(0)}
+              onMouseLeave={() => setHoveredSakura(null)}
+            >
+              🌸
+              {hoveredSakura === 0 && (
+                <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
+                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                </div>
+              )}
+            </div>
+            <div 
+              className="absolute -top-8 -right-12 text-7xl animate-float opacity-70 cursor-pointer transition-transform hover:scale-125 z-50" 
+              style={{ animationDelay: '0.3s' }}
+              onMouseEnter={() => setHoveredSakura(1)}
+              onMouseLeave={() => setHoveredSakura(null)}
+            >
+              🌸
+              {hoveredSakura === 1 && (
+                <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
+                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                </div>
+              )}
+            </div>
+            <div 
+              className="absolute -bottom-8 -left-16 text-5xl animate-float opacity-60 cursor-pointer transition-transform hover:scale-125 z-50" 
+              style={{ animationDelay: '0.6s' }}
+              onMouseEnter={() => setHoveredSakura(2)}
+              onMouseLeave={() => setHoveredSakura(null)}
+            >
+              🌸
+              {hoveredSakura === 2 && (
+                <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
+                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                </div>
+              )}
+            </div>
+            <div 
+              className="absolute -bottom-10 -right-10 text-6xl animate-float opacity-75 cursor-pointer transition-transform hover:scale-125 z-50" 
+              style={{ animationDelay: '0.9s' }}
+              onMouseEnter={() => setHoveredSakura(3)}
+              onMouseLeave={() => setHoveredSakura(null)}
+            >
+              🌸
+              {hoveredSakura === 3 && (
+                <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in">
+                  <div className="tenor-gif-embed" data-postid="6680118806096799072" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+                </div>
+              )}
+            </div>
             <div className="absolute top-1/4 -left-20 text-4xl animate-float opacity-50" style={{ animationDelay: '1.2s' }}>🌸</div>
             <div className="absolute top-1/3 -right-18 text-5xl animate-float opacity-65" style={{ animationDelay: '1.5s' }}>🌸</div>
             <div className="absolute top-10 -left-24 text-3xl animate-float opacity-45" style={{ animationDelay: '1.8s' }}>🌸</div>
