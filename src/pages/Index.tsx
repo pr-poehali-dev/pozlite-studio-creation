@@ -386,30 +386,30 @@ const Index = () => {
                 href="https://www.youtube.com/@Pozetiv_lite" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-red-500/20 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] border border-transparent hover:border-red-500/50 transition-all group"
               >
                 <Icon name="Youtube" size={20} className="text-red-500 group-hover:scale-110 transition-transform" />
-                <span className="text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors">YouTube</span>
+                <span className="text-sm md:text-base text-foreground/90 group-hover:text-red-400 transition-colors">YouTube</span>
               </a>
               
               <a 
                 href="https://t.me/pozetiv4ik_lite_stybuo" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-500/20 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-transparent hover:border-blue-500/50 transition-all group"
               >
                 <Icon name="Send" size={20} className="text-blue-400 group-hover:scale-110 transition-transform" />
-                <span className="text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors">Telegram</span>
+                <span className="text-sm md:text-base text-foreground/90 group-hover:text-blue-400 transition-colors">Telegram</span>
               </a>
               
               <a 
                 href="https://vk.com/pozetiv4ik_iat" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-600/20 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] border border-transparent hover:border-blue-600/50 transition-all group"
               >
                 <Icon name="Share2" size={20} className="text-blue-600 group-hover:scale-110 transition-transform" />
-                <span className="text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors">VK</span>
+                <span className="text-sm md:text-base text-foreground/90 group-hover:text-blue-500 transition-colors">VK</span>
               </a>
             </div>
           </div>
