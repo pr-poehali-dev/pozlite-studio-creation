@@ -4,9 +4,20 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
 
+interface SakuraPetal {
+  id: number;
+  x: number;
+  y: number;
+  rotation: number;
+  speed: number;
+  swing: number;
+  size: number;
+}
+
 const Index = () => {
   const downloads: any[] = [];
   const [hoveredSakura, setHoveredSakura] = useState<number | null>(null);
+  const [petals, setPetals] = useState<SakuraPetal[]>([]);
 
   useEffect(() => {
     if (hoveredSakura !== null) {
@@ -22,6 +33,44 @@ const Index = () => {
       };
     }
   }, [hoveredSakura]);
+
+  useEffect(() => {
+    const initialPetals: SakuraPetal[] = Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: -10 - Math.random() * 100,
+      rotation: Math.random() * 360,
+      speed: 0.3 + Math.random() * 0.5,
+      swing: Math.random() * 3 - 1.5,
+      size: 0.8 + Math.random() * 0.7
+    }));
+    setPetals(initialPetals);
+
+    const animatePetals = () => {
+      setPetals(prev => prev.map(petal => {
+        let newY = petal.y + petal.speed;
+        let newX = petal.x + petal.swing * 0.05;
+        
+        if (newY > 110) {
+          newY = -10;
+          newX = Math.random() * 100;
+        }
+        
+        if (newX < -5) newX = 100;
+        if (newX > 105) newX = 0;
+        
+        return {
+          ...petal,
+          y: newY,
+          x: newX,
+          rotation: (petal.rotation + 1) % 360
+        };
+      }));
+    };
+
+    const interval = setInterval(animatePetals, 50);
+    return () => clearInterval(interval);
+  }, []);
 
   const blogPosts = [
     {
@@ -48,10 +97,38 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
+    <div className="min-h-screen relative overflow-hidden">
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: `url('https://cdn.poehali.dev/files/9b3c99e0-dad4-4ae2-afa8-542b827f7cd2.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 backdrop-blur-[2px]" />
+      </div>
+
+      {petals.map(petal => (
+        <div
+          key={petal.id}
+          className="fixed pointer-events-none z-10"
+          style={{
+            left: `${petal.x}%`,
+            top: `${petal.y}%`,
+            transform: `rotate(${petal.rotation}deg) scale(${petal.size})`,
+            fontSize: '2rem',
+            opacity: 0.7,
+            transition: 'all 0.05s linear'
+          }}
+        >
+          🌸
+        </div>
+      ))}
       
-      <div className="relative">
+      <div className="relative z-20">
 
 
         <header className="container mx-auto px-4 py-6 md:py-12 text-center">
