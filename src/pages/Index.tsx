@@ -375,22 +375,42 @@ const Index = () => {
         </section>
 
         <footer className="container mx-auto px-4 py-8 md:py-12 border-t border-border/50 mt-12 md:mt-24">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
-            <div className="text-center md:text-left">
+          <div className="flex flex-col items-center gap-6 md:gap-8">
+            <div className="text-center">
               <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2 glow-text">PozLite Studio</h3>
               <p className="text-xs md:text-sm text-muted-foreground">Создаём с 2024 года</p>
             </div>
             
-            <div className="flex items-center gap-3 md:gap-4">
-              <Button variant="ghost" size="icon" className="hover:text-primary hover:glow-box transition-all h-9 w-9 md:h-10 md:w-10">
-                <Icon name="Github" size={18} />
-              </Button>
-              <Button variant="ghost" size="icon" className="hover:text-secondary hover:glow-box transition-all h-9 w-9 md:h-10 md:w-10">
-                <Icon name="Twitter" size={18} />
-              </Button>
-              <Button variant="ghost" size="icon" className="hover:text-accent hover:glow-box transition-all h-9 w-9 md:h-10 md:w-10">
-                <Icon name="Linkedin" size={18} />
-              </Button>
+            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
+              <a 
+                href="https://www.youtube.com/@Pozetiv_lite" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+              >
+                <Icon name="Youtube" size={20} className="text-red-500 group-hover:scale-110 transition-transform" />
+                <span className="text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors">YouTube</span>
+              </a>
+              
+              <a 
+                href="https://t.me/pozetiv4ik_lite_stybuo" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+              >
+                <Icon name="Send" size={20} className="text-blue-400 group-hover:scale-110 transition-transform" />
+                <span className="text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors">Telegram</span>
+              </a>
+              
+              <a 
+                href="https://vk.com/pozetiv4ik_iat" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10 transition-all group"
+              >
+                <Icon name="Share2" size={20} className="text-blue-600 group-hover:scale-110 transition-transform" />
+                <span className="text-sm md:text-base text-foreground/90 group-hover:text-primary transition-colors">VK</span>
+              </a>
             </div>
           </div>
         </footer>
