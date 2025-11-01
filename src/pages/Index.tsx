@@ -150,7 +150,7 @@ const Index = () => {
           </div>
           
           <p className="text-xl md:text-2xl text-muted-foreground mt-12 max-w-2xl mx-auto font-light animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Создаём будущее цифровых продуктов
+            Привет это Pozetiv4ik_lite это мой сайт тут ты найдешь все что хочешь))
           </p>
 
           <div className="mt-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
