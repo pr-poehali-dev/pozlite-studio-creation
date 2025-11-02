@@ -12,29 +12,83 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function AuthMenu() {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({ name: "Pozlite", email: "pozlite@example.com" });
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login:", { email, password });
+    setIsLoggedIn(true);
     setOpen(false);
   };
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Register:", { name, email, password });
+    setIsLoggedIn(true);
     setOpen(false);
   };
 
   const handleSocialAuth = (provider: string) => {
     console.log(`Auth with ${provider}`);
+    setIsLoggedIn(true);
     setOpen(false);
   };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+  if (isLoggedIn) {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" className="gap-2">
+            <Avatar className="w-6 h-6">
+              <AvatarFallback className="text-xs bg-primary/20">
+                {user.name.charAt(0)}
+              </AvatarFallback>
+            </Avatar>
+            {user.name}
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-56">
+          <DropdownMenuLabel>Мой аккаунт</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem asChild>
+            <a href="/profile" className="cursor-pointer">
+              <Icon name="User" size={16} className="mr-2" />
+              Профиль
+            </a>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Icon name="Settings" size={16} className="mr-2" />
+            Настройки
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={handleLogout} className="text-red-600">
+            <Icon name="LogOut" size={16} className="mr-2" />
+            Выйти
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
