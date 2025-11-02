@@ -240,19 +240,31 @@ export default function Admin() {
                   </TableHeader>
                   <TableBody>
                     {filteredUsers.map((user) => (
-                      <TableRow key={user.id}>
+                      <TableRow 
+                        key={user.id}
+                        className={user.id === "1" ? "bg-red-500/10 hover:bg-red-500/20 border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]" : ""}
+                      >
                         <TableCell>
                           <div className="flex items-center gap-3">
-                            <Avatar>
+                            <Avatar className={user.id === "1" ? "ring-2 ring-red-500" : ""}>
                               <AvatarImage src={user.avatar} />
-                              <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
+                              <AvatarFallback className={user.id === "1" ? "bg-red-500/20 text-red-500" : ""}>
+                                {user.name.charAt(0)}
+                              </AvatarFallback>
                             </Avatar>
-                            <span className="font-medium">{user.name}</span>
+                            <span className={`font-medium ${user.id === "1" ? "text-red-500" : ""}`}>
+                              {user.name}
+                            </span>
                           </div>
                         </TableCell>
-                        <TableCell>{user.email}</TableCell>
+                        <TableCell className={user.id === "1" ? "text-red-400" : ""}>
+                          {user.email}
+                        </TableCell>
                         <TableCell>
-                          <Badge variant={user.role === "admin" ? "default" : "secondary"}>
+                          <Badge 
+                            variant={user.role === "admin" ? "default" : "secondary"}
+                            className={user.id === "1" ? "bg-red-500 text-white hover:bg-red-600" : ""}
+                          >
                             {user.id === "1" ? "Гл-админ" : user.role === "admin" ? "Админ" : "Пользователь"}
                           </Badge>
                         </TableCell>
