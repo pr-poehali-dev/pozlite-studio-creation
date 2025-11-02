@@ -146,10 +146,16 @@ export default function Admin() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80">
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-6">
+        <div className="mb-6 flex gap-2">
           <Button variant="ghost" onClick={() => window.history.back()} className="gap-2">
             <Icon name="ArrowLeft" size={18} />
             Назад
+          </Button>
+          <Button variant="outline" asChild className="gap-2">
+            <a href="/">
+              <Icon name="Home" size={18} />
+              Главная
+            </a>
           </Button>
         </div>
 
