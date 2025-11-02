@@ -253,7 +253,7 @@ export default function Admin() {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>
                           <Badge variant={user.role === "admin" ? "default" : "secondary"}>
-                            {user.role === "admin" ? "Админ" : "Пользователь"}
+                            {user.id === "1" ? "Гл-админ" : user.role === "admin" ? "Админ" : "Пользователь"}
                           </Badge>
                         </TableCell>
                         <TableCell>
