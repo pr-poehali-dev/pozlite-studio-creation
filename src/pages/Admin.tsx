@@ -76,6 +76,17 @@ export default function Admin() {
   };
 
   const handleChangeRole = (userId: string) => {
+    const user = users.find(u => u.id === userId);
+    
+    if (user?.id === "1") {
+      toast({
+        title: "Действие запрещено",
+        description: "Нельзя изменить роль главного администратора",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setUsers(users.map(user => 
       user.id === userId 
         ? { ...user, role: user.role === "admin" ? "user" : "admin" }
@@ -88,6 +99,15 @@ export default function Admin() {
   };
 
   const handleDeleteUser = (userId: string) => {
+    if (userId === "1") {
+      toast({
+        title: "Действие запрещено",
+        description: "Нельзя удалить главного администратора",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setUsers(users.filter(user => user.id !== userId));
     toast({
       title: "Пользователь удален",
@@ -262,6 +282,7 @@ export default function Admin() {
                                     onClick={() => handleChangeRole(user.id)}
                                     className="w-full justify-start"
                                     variant="outline"
+                                    disabled={user.id === "1"}
                                   >
                                     <Icon name="Shield" size={16} className="mr-2" />
                                     {user.role === "admin" ? "Снять права админа" : "Сделать админом"}
@@ -270,6 +291,7 @@ export default function Admin() {
                                     onClick={() => handleBlockUser(user.id)}
                                     className="w-full justify-start"
                                     variant="outline"
+                                    disabled={user.id === "1"}
                                   >
                                     <Icon name="Ban" size={16} className="mr-2" />
                                     {user.status === "active" ? "Заблокировать" : "Разблокировать"}
@@ -278,10 +300,16 @@ export default function Admin() {
                                     onClick={() => handleDeleteUser(user.id)}
                                     className="w-full justify-start"
                                     variant="destructive"
+                                    disabled={user.id === "1"}
                                   >
                                     <Icon name="Trash2" size={16} className="mr-2" />
                                     Удалить пользователя
                                   </Button>
+                                  {user.id === "1" && (
+                                    <p className="text-xs text-muted-foreground text-center pt-2">
+                                      🛡️ Главный администратор защищен
+                                    </p>
+                                  )}
                                 </div>
                               </DialogContent>
                             </Dialog>
