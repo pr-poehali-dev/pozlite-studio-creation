@@ -102,6 +102,27 @@ export default function AuthMenu() {
               Профиль
             </a>
           </DropdownMenuItem>
+          {(() => {
+            const savedUser = localStorage.getItem('userProfile');
+            if (savedUser) {
+              try {
+                const userData = JSON.parse(savedUser);
+                if (userData.role === 'admin') {
+                  return (
+                    <DropdownMenuItem asChild>
+                      <a href="/admin" className="cursor-pointer">
+                        <Icon name="Shield" size={16} className="mr-2" />
+                        Админ-панель
+                      </a>
+                    </DropdownMenuItem>
+                  );
+                }
+              } catch (e) {
+                return null;
+              }
+            }
+            return null;
+          })()}
           <DropdownMenuItem>
             <Icon name="Settings" size={16} className="mr-2" />
             Настройки
