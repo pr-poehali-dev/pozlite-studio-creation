@@ -10,16 +10,14 @@ import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 
-const DEFAULT_USER = {
-  name: "Pozlite",
-  email: "pozlite@example.com",
-  bio: "Главный администратор PozLite Studio",
-  avatar: "",
-  role: "admin"
-};
-
 export default function Profile() {
-  const [user, setUser] = useState(DEFAULT_USER);
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    bio: "",
+    avatar: "",
+    role: "user"
+  });
   const [isEditing, setIsEditing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -32,6 +30,8 @@ export default function Profile() {
       } catch (e) {
         console.error('Ошибка загрузки профиля:', e);
       }
+    } else {
+      window.location.href = '/';
     }
   }, []);
 

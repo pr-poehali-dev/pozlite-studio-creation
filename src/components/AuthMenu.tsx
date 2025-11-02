@@ -54,6 +54,17 @@ export default function AuthMenu() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login:", { email, password });
+    
+    const newUser = {
+      name: name || email.split('@')[0],
+      email: email,
+      bio: "Пользователь PozLite Studio",
+      avatar: "",
+      role: "user"
+    };
+    
+    localStorage.setItem('userProfile', JSON.stringify(newUser));
+    setUser({ name: newUser.name, email: newUser.email, avatar: "" });
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
     setOpen(false);
@@ -62,6 +73,17 @@ export default function AuthMenu() {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Register:", { name, email, password });
+    
+    const newUser = {
+      name: name,
+      email: email,
+      bio: "Пользователь PozLite Studio",
+      avatar: "",
+      role: "user"
+    };
+    
+    localStorage.setItem('userProfile', JSON.stringify(newUser));
+    setUser({ name: newUser.name, email: newUser.email, avatar: "" });
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
     setOpen(false);
