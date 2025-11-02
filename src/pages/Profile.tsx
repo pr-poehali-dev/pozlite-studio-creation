@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Profile() {
   const [user, setUser] = useState({
@@ -19,10 +20,44 @@ export default function Profile() {
   });
 
   const [isEditing, setIsEditing] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const { toast } = useToast();
 
   const handleSave = () => {
     console.log("Saving user data:", user);
     setIsEditing(false);
+    toast({
+      title: "Успешно сохранено!",
+      description: "Ваш профиль обновлен",
+    });
+  };
+
+  const handlePhotoClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        toast({
+          title: "Ошибка",
+          description: "Можно загружать только изображения",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUser({ ...user, avatar: reader.result as string });
+        toast({
+          title: "Фото загружено!",
+          description: "Не забудьте сохранить изменения",
+        });
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -46,10 +81,20 @@ export default function Profile() {
                   </AvatarFallback>
                 </Avatar>
                 {isEditing && (
-                  <Button variant="outline" size="sm">
-                    <Icon name="Upload" size={16} className="mr-2" />
-                    Изменить фото
-                  </Button>
+                  <>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/*"
+                      capture="environment"
+                      onChange={handleFileChange}
+                      className="hidden"
+                    />
+                    <Button variant="outline" size="sm" onClick={handlePhotoClick}>
+                      <Icon name="Upload" size={16} className="mr-2" />
+                      Изменить фото
+                    </Button>
+                  </>
                 )}
               </div>
 
