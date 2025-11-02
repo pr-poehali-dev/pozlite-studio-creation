@@ -381,8 +381,7 @@ const Index = () => {
         <footer className="container mx-auto px-4 py-8 md:py-12 border-t border-border/50 mt-12 md:mt-24">
           <div className="flex flex-col items-center gap-6 md:gap-8">
             <div className="text-center">
-              <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2 glow-text">PozLite Studio</h3>
-              <p className="text-xs md:text-sm text-muted-foreground">Создаём с 2024 года</p>
+              <h3 className="text-xl md:text-2xl font-bold glow-text">PozLite Studio</h3>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
