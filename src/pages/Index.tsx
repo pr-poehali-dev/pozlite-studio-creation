@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
+import AuthMenu from "@/components/AuthMenu";
 
 interface SakuraPetal {
   id: number;
@@ -131,8 +132,11 @@ const Index = () => {
       <div className="relative z-20">
 
 
-        <header className="container mx-auto px-4 py-6 md:py-12 text-center">
-          <div className="relative animate-fade-in inline-block">
+        <header className="container mx-auto px-4 py-6 md:py-12">
+          <div className="flex justify-end mb-4">
+            <AuthMenu />
+          </div>
+          <div className="relative animate-fade-in inline-block text-center w-full">
             <div 
               className="absolute -top-6 md:-top-12 -left-4 md:-left-8 text-3xl md:text-6xl animate-float opacity-80 cursor-pointer transition-transform hover:scale-125 z-50" 
               onMouseEnter={() => setHoveredSakura(0)}
