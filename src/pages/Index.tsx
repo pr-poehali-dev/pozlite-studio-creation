@@ -73,29 +73,7 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const blogPosts = [
-    {
-      title: "Будущее веб-разработки в 2025",
-      excerpt: "Исследуем новые технологии и тренды индустрии",
-      date: "28 Окт 2024",
-      readTime: "5 мин",
-      category: "Технологии"
-    },
-    {
-      title: "10 советов по оптимизации производительности",
-      excerpt: "Как сделать ваше приложение быстрее",
-      date: "25 Окт 2024",
-      readTime: "8 мин",
-      category: "Разработка"
-    },
-    {
-      title: "Дизайн-система: с чего начать",
-      excerpt: "Создаем единый язык для вашего продукта",
-      date: "22 Окт 2024",
-      readTime: "6 мин",
-      category: "Дизайн"
-    }
-  ];
+
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -319,63 +297,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 md:mb-12 gap-4">
-              <div>
-                <h2 className="text-2xl md:text-4xl font-bold mb-2 flex items-center gap-2 md:gap-3">
-                  <Icon name="BookOpen" className="text-secondary" size={28} />
-                  Блог
-                </h2>
-                <p className="text-sm md:text-base text-muted-foreground">Статьи и новости из мира технологий</p>
-              </div>
-              <Button variant="outline" className="hidden md:flex items-center gap-2 gradient-border">
-                Все статьи
-                <Icon name="ArrowRight" size={18} />
-              </Button>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {blogPosts.map((post, index) => (
-                <Card 
-                  key={index}
-                  className="group p-4 md:p-6 bg-card/50 backdrop-blur-sm border-border/50 hover:border-secondary/50 transition-all duration-300 hover:glow-box cursor-pointer overflow-hidden animate-fade-in"
-                  style={{ animationDelay: `${0.7 + index * 0.1}s` }}
-                >
-                  <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <Badge variant="outline" className="mb-3 md:mb-4 border-secondary/50 text-secondary text-xs">
-                    {post.category}
-                  </Badge>
-                  
-                  <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 group-hover:text-secondary transition-colors">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center gap-3 md:gap-4 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <Icon name="Calendar" size={12} />
-                      {post.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Icon name="Clock" size={12} />
-                      {post.readTime}
-                    </span>
-                  </div>
-                  
-                  <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-border/50">
-                    <Button variant="ghost" size="sm" className="w-full justify-between group-hover:text-secondary text-xs md:text-sm">
-                      Читать далее
-                      <Icon name="ArrowRight" size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
         </section>
 
         <footer className="container mx-auto px-4 py-8 md:py-12 border-t border-border/50 mt-12 md:mt-24">
