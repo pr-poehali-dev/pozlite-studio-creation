@@ -247,9 +247,21 @@ export default function Admin() {
                               <AvatarImage src={user.avatar} />
                               <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                             </Avatar>
-                            <span className={`font-medium ${user.id === "1" ? "text-red-500 font-bold" : ""}`}>
-                              {user.name}
-                            </span>
+                            {user.id === "1" ? (
+                              <div className="relative">
+                                <span className="absolute -left-6 top-1/2 -translate-y-1/2 text-red-500 text-xs animate-pulse">▲</span>
+                                <span className="absolute -right-6 top-1/2 -translate-y-1/2 text-red-500 text-xs animate-pulse" style={{animationDelay: '0.3s'}}>▲</span>
+                                <span className="absolute -left-8 top-0 text-yellow-400 text-[8px] animate-bounce">⭐</span>
+                                <span className="absolute -right-8 top-0 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.5s'}}>⭐</span>
+                                <span className="absolute -left-8 bottom-0 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.7s'}}>⭐</span>
+                                <span className="absolute -right-8 bottom-0 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.2s'}}>⭐</span>
+                                <span className="font-medium text-red-500 font-bold">
+                                  {user.name}
+                                </span>
+                              </div>
+                            ) : (
+                              <span className="font-medium">{user.name}</span>
+                            )}
                           </div>
                         </TableCell>
                         <TableCell>{user.email}</TableCell>
