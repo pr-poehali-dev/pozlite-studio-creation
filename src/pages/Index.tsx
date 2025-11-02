@@ -416,6 +416,14 @@ const Index = () => {
                 <span className="text-sm md:text-base text-foreground/90 group-hover:text-blue-500 transition-colors">VK</span>
               </a>
             </div>
+
+            <div className="mt-8 pt-6 border-t border-border/30">
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                <Icon name="Shield" size={16} className="text-primary" />
+                <span>Главный администратор:</span>
+                <span className="text-primary font-semibold">Pozlite (PozLite Studio)</span>
+              </div>
+            </div>
           </div>
         </footer>
       </div>
