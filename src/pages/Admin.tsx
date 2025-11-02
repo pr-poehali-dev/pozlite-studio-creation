@@ -248,13 +248,13 @@ export default function Admin() {
                               <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                             </Avatar>
                             {user.id === "1" ? (
-                              <div className="relative">
-                                <span className="absolute -left-6 top-1/2 -translate-y-1/2 text-red-500 text-xs animate-pulse">▲</span>
-                                <span className="absolute -right-6 top-1/2 -translate-y-1/2 text-red-500 text-xs animate-pulse" style={{animationDelay: '0.3s'}}>▲</span>
-                                <span className="absolute -left-8 top-0 text-yellow-400 text-[8px] animate-bounce">⭐</span>
-                                <span className="absolute -right-8 top-0 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.5s'}}>⭐</span>
-                                <span className="absolute -left-8 bottom-0 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.7s'}}>⭐</span>
-                                <span className="absolute -right-8 bottom-0 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.2s'}}>⭐</span>
+                              <div className="relative pl-3 pr-3">
+                                <span className="absolute -left-2 top-1/2 -translate-y-1/2 text-red-500 text-xs animate-pulse">▲</span>
+                                <span className="absolute -right-2 top-1/2 -translate-y-1/2 text-red-500 text-xs animate-pulse" style={{animationDelay: '0.3s'}}>▲</span>
+                                <span className="absolute -left-4 -top-1 text-yellow-400 text-[8px] animate-bounce">⭐</span>
+                                <span className="absolute -right-4 -top-1 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.5s'}}>⭐</span>
+                                <span className="absolute -left-4 -bottom-1 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.7s'}}>⭐</span>
+                                <span className="absolute -right-4 -bottom-1 text-yellow-400 text-[8px] animate-bounce" style={{animationDelay: '0.2s'}}>⭐</span>
                                 <span className="font-medium text-red-500 font-bold">
                                   {user.name}
                                 </span>
