@@ -44,24 +44,6 @@ export default function Admin() {
       status: "active",
       registeredAt: "2024-01-01",
       avatar: ""
-    },
-    {
-      id: "2",
-      name: "Иван Петров",
-      email: "ivan@example.com",
-      role: "user",
-      status: "active",
-      registeredAt: "2024-10-15",
-      avatar: ""
-    },
-    {
-      id: "3",
-      name: "Мария Смирнова",
-      email: "maria@example.com",
-      role: "user",
-      status: "active",
-      registeredAt: "2024-10-20",
-      avatar: ""
     }
   ]);
 
