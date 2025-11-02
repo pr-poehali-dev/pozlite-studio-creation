@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "name": "Redirect to Google OAuth",
+      "method": "GET",
+      "queryStringParameters": {
+        "provider": "google"
+      },
+      "expectedStatus": 302,
+      "bodyMatcher": "none"
+    }
+  ]
+}

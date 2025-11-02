@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "Register with missing fields",
+      "method": "POST",
+      "body": {
+        "action": "register",
+        "email": "test@example.com"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Login with missing fields",
+      "method": "POST",
+      "body": {
+        "action": "login",
+        "email": "test@example.com"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
