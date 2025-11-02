@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,20 +10,33 @@ import Icon from "@/components/ui/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 
-export default function Profile() {
-  const [user, setUser] = useState({
-    name: "Pozlite",
-    email: "pozlite@example.com",
-    bio: "Главный администратор PozLite Studio",
-    avatar: "",
-    role: "admin"
-  });
+const DEFAULT_USER = {
+  name: "Pozlite",
+  email: "pozlite@example.com",
+  bio: "Главный администратор PozLite Studio",
+  avatar: "",
+  role: "admin"
+};
 
+export default function Profile() {
+  const [user, setUser] = useState(DEFAULT_USER);
   const [isEditing, setIsEditing] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
+  useEffect(() => {
+    const savedUser = localStorage.getItem('userProfile');
+    if (savedUser) {
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (e) {
+        console.error('Ошибка загрузки профиля:', e);
+      }
+    }
+  }, []);
+
   const handleSave = () => {
+    localStorage.setItem('userProfile', JSON.stringify(user));
     console.log("Saving user data:", user);
     setIsEditing(false);
     toast({

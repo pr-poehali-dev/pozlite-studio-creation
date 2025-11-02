@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,12 +28,34 @@ export default function AuthMenu() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({ name: "Pozlite", email: "pozlite@example.com" });
+  const [user, setUser] = useState({ name: "Pozlite", email: "pozlite@example.com", avatar: "" });
+
+  useEffect(() => {
+    const authStatus = localStorage.getItem('isLoggedIn');
+    const savedUser = localStorage.getItem('userProfile');
+    
+    if (authStatus === 'true') {
+      setIsLoggedIn(true);
+      if (savedUser) {
+        try {
+          const userData = JSON.parse(savedUser);
+          setUser({ 
+            name: userData.name, 
+            email: userData.email,
+            avatar: userData.avatar || ""
+          });
+        } catch (e) {
+          console.error('Ошибка загрузки данных:', e);
+        }
+      }
+    }
+  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login:", { email, password });
     setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
     setOpen(false);
   };
 
@@ -41,17 +63,20 @@ export default function AuthMenu() {
     e.preventDefault();
     console.log("Register:", { name, email, password });
     setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
     setOpen(false);
   };
 
   const handleSocialAuth = (provider: string) => {
     console.log(`Auth with ${provider}`);
     setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
     setOpen(false);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
   };
 
   if (isLoggedIn) {
@@ -60,6 +85,7 @@ export default function AuthMenu() {
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="gap-2">
             <Avatar className="w-6 h-6">
+              <AvatarImage src={user.avatar} />
               <AvatarFallback className="text-xs bg-primary/20">
                 {user.name.charAt(0)}
               </AvatarFallback>
