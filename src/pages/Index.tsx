@@ -2,76 +2,10 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
-import { useState, useEffect } from "react";
 import AuthMenu from "@/components/AuthMenu";
-
-interface SakuraPetal {
-  id: number;
-  x: number;
-  y: number;
-  rotation: number;
-  speed: number;
-  swing: number;
-  size: number;
-}
 
 const Index = () => {
   const downloads: any[] = [];
-  const [hoveredSakura, setHoveredSakura] = useState<number | null>(null);
-  const [petals, setPetals] = useState<SakuraPetal[]>([]);
-
-  useEffect(() => {
-    if (hoveredSakura !== null) {
-      const script = document.createElement('script');
-      script.src = 'https://tenor.com/embed.js';
-      script.async = true;
-      document.body.appendChild(script);
-
-      return () => {
-        if (document.body.contains(script)) {
-          document.body.removeChild(script);
-        }
-      };
-    }
-  }, [hoveredSakura]);
-
-  useEffect(() => {
-    const initialPetals: SakuraPetal[] = Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: -10 - Math.random() * 100,
-      rotation: Math.random() * 360,
-      speed: 0.3 + Math.random() * 0.5,
-      swing: Math.random() * 3 - 1.5,
-      size: 0.8 + Math.random() * 0.7
-    }));
-    setPetals(initialPetals);
-
-    const animatePetals = () => {
-      setPetals(prev => prev.map(petal => {
-        let newY = petal.y + petal.speed;
-        let newX = petal.x + petal.swing * 0.05;
-        
-        if (newY > 110) {
-          newY = -10;
-          newX = Math.random() * 100;
-        }
-        
-        if (newX < -5) newX = 100;
-        if (newX > 105) newX = 0;
-        
-        return {
-          ...petal,
-          y: newY,
-          x: newX,
-          rotation: (petal.rotation + 1) % 360
-        };
-      }));
-    };
-
-    const interval = setInterval(animatePetals, 50);
-    return () => clearInterval(interval);
-  }, []);
 
 
 
@@ -90,22 +24,6 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 backdrop-blur-[2px]" />
       </div>
 
-      {petals.map(petal => (
-        <div
-          key={petal.id}
-          className="fixed pointer-events-none z-10"
-          style={{
-            left: `${petal.x}%`,
-            top: `${petal.y}%`,
-            transform: `rotate(${petal.rotation}deg) scale(${petal.size})`,
-            fontSize: '2rem',
-            opacity: 0.7,
-            transition: 'all 0.05s linear'
-          }}
-        >
-          🌸
-        </div>
-      ))}
       
       <div className="relative z-20">
 
@@ -115,88 +33,6 @@ const Index = () => {
             <AuthMenu />
           </div>
           <div className="relative animate-fade-in inline-block text-center w-full">
-            <div 
-              className="absolute -top-6 md:-top-12 -left-4 md:-left-8 text-3xl md:text-6xl animate-float opacity-80 cursor-pointer transition-transform hover:scale-125 z-50" 
-              onMouseEnter={() => setHoveredSakura(0)}
-              onMouseLeave={() => setHoveredSakura(null)}
-            >
-              🌸
-              {hoveredSakura === 0 && (
-                <div className="hidden md:block absolute -top-40 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in pointer-events-none">
-                  <div 
-                    className="tenor-gif-embed" 
-                    data-postid="6680118806096799072" 
-                    data-share-method="host" 
-                    data-aspect-ratio="1" 
-                    data-width="100%"
-                  ></div>
-                </div>
-              )}
-            </div>
-            <div 
-              className="absolute -top-4 md:-top-8 -right-6 md:-right-12 text-4xl md:text-7xl animate-float opacity-70 cursor-pointer transition-transform hover:scale-125 z-50" 
-              style={{ animationDelay: '0.3s' }}
-              onMouseEnter={() => setHoveredSakura(1)}
-              onMouseLeave={() => setHoveredSakura(null)}
-            >
-              🌸
-              {hoveredSakura === 1 && (
-                <div className="hidden md:block absolute -top-40 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in pointer-events-none">
-                  <div 
-                    className="tenor-gif-embed" 
-                    data-postid="6680118806096799072" 
-                    data-share-method="host" 
-                    data-aspect-ratio="1" 
-                    data-width="100%"
-                  ></div>
-                </div>
-              )}
-            </div>
-            <div 
-              className="absolute -bottom-4 md:-bottom-8 -left-8 md:-left-16 text-3xl md:text-5xl animate-float opacity-60 cursor-pointer transition-transform hover:scale-125 z-50" 
-              style={{ animationDelay: '0.6s' }}
-              onMouseEnter={() => setHoveredSakura(2)}
-              onMouseLeave={() => setHoveredSakura(null)}
-            >
-              🌸
-              {hoveredSakura === 2 && (
-                <div className="hidden md:block absolute -bottom-40 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in pointer-events-none">
-                  <div 
-                    className="tenor-gif-embed" 
-                    data-postid="6680118806096799072" 
-                    data-share-method="host" 
-                    data-aspect-ratio="1" 
-                    data-width="100%"
-                  ></div>
-                </div>
-              )}
-            </div>
-            <div 
-              className="absolute -bottom-5 md:-bottom-10 -right-5 md:-right-10 text-3xl md:text-6xl animate-float opacity-75 cursor-pointer transition-transform hover:scale-125 z-50" 
-              style={{ animationDelay: '0.9s' }}
-              onMouseEnter={() => setHoveredSakura(3)}
-              onMouseLeave={() => setHoveredSakura(null)}
-            >
-              🌸
-              {hoveredSakura === 3 && (
-                <div className="hidden md:block absolute -bottom-40 left-1/2 -translate-x-1/2 w-32 h-32 animate-fade-in pointer-events-none">
-                  <div 
-                    className="tenor-gif-embed" 
-                    data-postid="6680118806096799072" 
-                    data-share-method="host" 
-                    data-aspect-ratio="1" 
-                    data-width="100%"
-                  ></div>
-                </div>
-              )}
-            </div>
-            <div className="hidden md:block absolute top-1/4 -left-20 text-4xl animate-float opacity-50" style={{ animationDelay: '1.2s' }}>🌸</div>
-            <div className="hidden md:block absolute top-1/3 -right-18 text-5xl animate-float opacity-65" style={{ animationDelay: '1.5s' }}>🌸</div>
-            <div className="hidden lg:block absolute top-10 -left-24 text-3xl animate-float opacity-45" style={{ animationDelay: '1.8s' }}>🌸</div>
-            <div className="hidden lg:block absolute top-16 -right-20 text-4xl animate-float opacity-55" style={{ animationDelay: '2.1s' }}>🌸</div>
-            <div className="hidden lg:block absolute bottom-12 -left-10 text-5xl animate-float opacity-70" style={{ animationDelay: '2.4s' }}>🌸</div>
-            <div className="hidden lg:block absolute bottom-16 -right-16 text-4xl animate-float opacity-60" style={{ animationDelay: '2.7s' }}>🌸</div>
-            
             <div className="relative p-1 md:p-2 rounded-2xl md:rounded-3xl bg-gradient-to-r from-purple-400 via-rose-400 to-pink-400 glow-box shadow-xl md:shadow-2xl shadow-purple-500/50">
               <div className="bg-background/95 backdrop-blur-sm rounded-xl md:rounded-2xl px-6 py-4 md:px-12 md:py-8">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-2 md:mb-4 glow-text tracking-tight">
